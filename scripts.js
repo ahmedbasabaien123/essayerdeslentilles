@@ -1,20 +1,42 @@
-let companykey = "xlei4EaTNrAe5kMVsNGXDyxXkfeozeWx47YAJ6ub8SEZfDYFZ7J/E3HcG5WGmKGJ";
+let companykey = "xlei4EaTNrAe5kMVsNGXD26eCMwfSXsNveYjl4BpV+wFnyNMR6ij/X3vKIrTDKyX";
 
 function toggleDropdown(id) {
     const element = document.getElementById(id);
+    const dropdowns = document.querySelectorAll('.submenu-content');
+    
+    dropdowns.forEach(dropdown => {
+        if (dropdown !== element) {
+            dropdown.style.display = 'none'; // Fermer tous les autres sous-menus
+        }
+    });
+    
     element.style.display = element.style.display === 'block' ? 'none' : 'block';
 }
 
 function tryOZIA(productKey) {
-    startFitting(productKey);
+    closeAllSubmenus(); // Fermer tous les sous-menus avant d'ouvrir l'essai
+    if (productKey === 'product-1ton') {
+        window.location.href = "https://apilive.fittingmonster.com/client/index_v2.html";
+    } else {
+        startFitting(productKey);
+    }
 }
 
 function tryQueens(productKey) {
+    closeAllSubmenus(); // Fermer tous les sous-menus avant d'ouvrir l'essai
     startFitting(productKey);
 }
 
 function tryDeminiac() {
+    closeAllSubmenus(); // Fermer tous les sous-menus avant d'ouvrir l'essai
     startFitting('product-deminiac');
+}
+
+function closeAllSubmenus() {
+    const submenus = document.querySelectorAll('.submenu-content');
+    submenus.forEach(submenu => {
+        submenu.style.display = 'none';
+    });
 }
 
 function startFitting(productKey) {

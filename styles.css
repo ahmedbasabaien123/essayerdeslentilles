@@ -107,9 +107,10 @@ main {
     border: 1px solid #ddd;
     border-radius: 5px;
     z-index: 10;
-    padding: 50px;
+    padding: 10px;
+    max-height: 200px; /* Hauteur maximale pour le défilement */
+    overflow-y: auto; /* Activer le défilement vertical */
 }
-
 .dropdown {
     position: relative;
 }
@@ -123,7 +124,7 @@ main {
     border-radius: 5px;
     display: block;
     margin-bottom: 2px;
-
+    transition: background-color 0.3s, transform 0.3s; /* Transition pour les effets */
 }
 
 .submenu-content {
@@ -132,7 +133,15 @@ main {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    max-height: 150px; /* Hauteur maximale pour le défilement */
+    overflow-y: auto; /* Activer le défilement vertical */
 }
+
+.dropbtn:hover {
+    background-color: #007BFF;
+    transform: scale(1.05); /* Agrandir légèrement le bouton au survol */
+}
+
 
 .submenu-content a {
     color: #00AEEF;
@@ -143,6 +152,11 @@ main {
 
 .submenu-content a:hover {
     background-color: #ddd;
+}
+
+.dropdown-content, .submenu-content {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre pour donner de la profondeur */
+    transition: max-height 0.3s ease-in-out; /* Transition pour l'ouverture/fermeture */
 }
 
 #about, #contact {
