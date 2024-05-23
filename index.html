@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essai de Lentilles</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://api.fittingmonster.com/css/api/fm.api_v5.css" />
+</head>
+<body>
+    <header>
+        <img src="src/logo.png" alt="CVE Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#about">À propos de nous</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <video autoplay muted loop id="bg-video">
+                <source src="/src/EDLVidéo.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Bienvenue sur notre site d'essai gratuit</h1>
+                <button class="button" onclick="toggleDropdown('dropdown')">J'essaie mes lentilles</button>
+                <div id="dropdown" class="dropdown-content">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="toggleDropdown('ozia-submenu')">OZIA</button>
+                        <div id="ozia-submenu" class="submenu-content">
+                            <a href="#" onclick="tryOZIA('product-3ton')">3ton</a>
+                            <a href="#" onclick="tryOZIA('product-1ton')">1ton</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="toggleDropdown('queens-submenu')">QUEEN'S</button>
+                        <div id="queens-submenu" class="submenu-content">
+                            <a href="#" onclick="tryQueens('product-solitaire')">Solitaire</a>
+                            <a href="#" onclick="tryQueens('product-twins')">Twins</a>
+                            <a href="#" onclick="tryQueens('product-trilogy')">Trilogy</a>
+                        </div>
+                    </div>
+                    <a href="#" class="dropbtn" onclick="tryDeminiac()">DEMINIAC</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-wrapper">
+                <div class="about-header">
+                    <h2>À PROPOS DE <span class="highlight">CVE</span></h2>
+                </div>
+                <div class="about-content">
+                    <img src="src/oeil.jpg" alt="Eye image" class="about-image">
+                    <div class="about-text">
+                        <p>Le laboratoire CVE propose un service d'essai gratuit pour les lentilles de contact.</p>
+                        <p>CVE, spécialisé dans les lentilles de contact depuis 1986, offre des lentilles haut de gamme de divers fabricants avec lesquels nous coopérons depuis de nombreuses années.</p>
+                        <p>En plus des lentilles de haute technologie et des lentilles cosmétiques reconnues, nous nous engageons à appliquer toute notre expertise et nos compétences au service des yeux des porteurs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="optician">
+            <img src="src/opticien.jpg" alt="Optician Image" id="bg-image">
+            <div class="overlay"></div>
+            <div class="optician-content">
+                <h2>Commandez chez votre opticien</h2>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Pour toute question ou information complémentaire, n'hésitez pas à nous contacter :</p>
+            <p>Email : <a href="mailto:info@labo-cve.com">info@labo-cve.com</a></p>
+            <p>Téléphone : <a href="tel:+33 (0)3 90 40 46 00">+33 (0)3 90 40 46 00</a></p>
+        </section>
+    </main>
+    <footer>
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </footer>
+
+    <!-- TRY ON button -->
+    <button class="fm-fitting-btn btn-fm">
+        <div>TRY-ON</div>
+    </button>
+    <!-- Fitting display -->
+    <div id="fm-fitting-display"></div>
+    <!-- Popup background -->
+    <div id="fm-popup-bg"></div>
+
+    <!--Load the AJAX API-->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://api.fittingmonster.com/js/api/fm.api.live_v2.js"></script>
+    <script src="scripts.js"></script> <!-- Inclure le fichier JavaScript séparé -->
+</body>
+</html>

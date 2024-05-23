@@ -1,0 +1,272 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #00AEEF;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+}
+
+header .logo {
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    margin: 0;
+}
+
+#hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 200px 20px;
+    margin: 0;
+    overflow: hidden; /* Assurez-vous que la vidéo ne déborde pas */
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Assurez-vous que la vidéo est derrière le contenu */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couche semi-transparente noire */
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 26px;
+    display: inline-block;
+}
+
+#hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 100px;
+}
+
+#hero .button {
+    background-color: #00AEEF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+#dropdown, .submenu-content {
+    display: none; /* Masquer par défaut */
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 91%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    z-index: 10;
+    padding: 50px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background-color: #00AEEF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 2px;
+
+}
+
+.submenu-content {
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.submenu-content a {
+    color: #00AEEF;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.submenu-content a:hover {
+    background-color: #ddd;
+}
+
+#about, #contact {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#about {
+    padding: 40px;
+}
+
+#about h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#about .highlight {
+    color: #00AEEF; /* Ajustez la couleur selon vos besoins */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image {
+    width: calc(50% - 10px); /* Remplir la partie gauche avec une marge de 10px */
+    max-width: none;
+    margin-right: 10px;
+}
+
+.about-text {
+    width: 50%;
+    font-size: 1.1em;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+#optician {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 200px 20px;
+    margin: 0;
+    overflow: hidden; /* Assurez-vous que l'image ne déborde pas */
+}
+
+
+#bg-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Assurez-vous que l'image est derrière le contenu */
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couche semi-transparente noire */
+    z-index: -1;
+}
+
+.optician-content {
+    position: relative;
+    z-index: 2;
+    padding: 26px;
+    display: inline-block;
+}
+
+#optician h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Optionnel : Ajoute un fond semi-transparent pour améliorer la lisibilité */
+    padding: 10px 20px; /* Optionnel : Ajoute du padding autour du texte */
+    border-radius: 10px; /* Optionnel : Arrondit les coins du fond */
+}
+
+
+#contact {
+    text-align: center;
+    align-items: center;
+}
+
+
+footer {
+    background-color: #00AEEF;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.fm-fitting-btn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: #00AEEF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
