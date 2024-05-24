@@ -1,32 +1,112 @@
-<html lang="en">
-  <head>
-    <title>FM GLASSES AR</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essai de Lentilles</title>
+    <link rel="stylesheet" href="test.css">
     <link rel="stylesheet" href="https://api.fittingmonster.com/css/api/fm.api_v5.css" />
-  </head>
-  <body>
-    <!-- TRY ON button -->
-    <button class="fm-fitting-btn btn-fm">
-      <div>TRY-ON</div>
-    </button>
-    <!-- Fitting display -->
-    <div id="fm-fitting-display"></div>
-    <!-- Popup background -->
-    <div id="fm-popup-bg"></div>
- 
-    <!--Load the AJAX API-->
+</head>
+<body>
+    <header>
+        <img src="src/logo.png" alt="CVE Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#about">À propos de nous</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <video autoplay muted loop id="bg-video">
+                <source src="/src/EDLVidéo.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Bienvenue sur notre site d'essai gratuit</h1>
+
+                <div class="dropdown">
+                  <button class="dropbtn">Je teste mes lentilles <span class="icon">▼</span></button>
+                  <div class="dropdown-content">
+                      <div class="dropdown-item">
+                          Ozia
+                          <div class="dropdown-subcontent">
+                              <a href="Ozia/1ton.html">1ton</a>
+                              <a href="Ozia/3ton.html">3ton</a>
+                          </div>
+                      </div>
+                      <div class="dropdown-item">
+                          Queen's
+                          <div class="dropdown-subcontent">
+                              <a href="Queen's/solitaire.html">Solitaire</a>
+                              <a href="Queen's/trilogy.html">Trilogy</a>
+                              <a href="Queen's/twins.html">Twins</a>
+                          </div>
+                      </div>
+                      <div class="dropdown-item">
+                          Demoniac
+                          <div class="dropdown-subcontent">
+                              <a href="page5.html">Choice 1</a>
+                              <a href="page6.html">Choice 2</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                                
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-wrapper">
+                <div class="about-header">
+                    <h2>À PROPOS DE <span class="highlight">CVE</span></h2>
+                </div>
+                <div class="about-content">
+                    <img src="src/oeil.jpg" alt="Eye image" class="about-image">
+                    <div class="about-text">
+                        <p>Le laboratoire CVE propose un service d'essai gratuit pour les lentilles de contact.</p>
+                        <p>CVE, spécialisé dans les lentilles de contact depuis 1986, offre des lentilles haut de gamme de divers fabricants avec lesquels nous coopérons depuis de nombreuses années.</p>
+                        <p>En plus des lentilles de haute technologie et des lentilles cosmétiques reconnues, nous nous engageons à appliquer toute notre expertise et nos compétences au service des yeux des porteurs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="optician">
+            <img src="src/opticien.jpg" alt="Optician Image" id="bg-image">
+            <div class="overlay"></div>
+            <div class="optician-content">
+                <h2>Commandez chez votre opticien</h2>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Pour toute question ou information complémentaire, n'hésitez pas à nous contacter :</p>
+            <p>Email : <a href="mailto:info@labo-cve.com">info@labo-cve.com</a></p>
+            <p>Téléphone : <a href="tel:+33 (0)3 90 40 46 00">+33 (0)3 90 40 46 00</a></p>
+        </section>
+    </main>
+    <footer>
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </footer>
+
+
+
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="https://api.fittingmonster.com/js/api/fm.api.live_v2.js"></script>
     <script>
       /* Setting companykey */
-      let companykey = "xlei4EaTNrAe5kMVsNGXDyxXkfeozeWx47YAJ6ub8SEZfDYFZ7J/E3HcG5WGmKGJ";
+      let companykey = "xlei4EaTNrAe5kMVsNGXD26eCMwfSXsNveYjl4BpV+wFnyNMR6ij/X3vKIrTDKyX";
  
       /* Setting productkey */
-      var productkey = "product01";
+      var productkey = "OzClt,OzClt_1,OzClt_2,OzClt_3";
  
       /* Productkey setting sample */
       /*
-      var productkey = getUrlParams().idx;
+      var productkey = getUrlParams().id;
       function getUrlParams() {
         var params = {};
         window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
@@ -34,12 +114,9 @@
         });
         return params;
       }
-      /* productkey validation */
-      /*
-        Check the validity of the product key after entering the page.
-        If the product key is valid, the fitting button is displayed.
-        If you want to always expose the fitting button, use "$('.fm-fitting-btn').show();" instead of executing the check function below.
       */
+ 
+      /* productkey validation */
       checkProductKey(function (result) {
         if (result == 0) {
           $('.fm-fitting-btn').show();
@@ -55,23 +132,58 @@
           console.log("Productkey error");
         } else if (result == 3) {
           $('.fm-fitting-btn').hide();
-          console.log("Not suported app");
+          console.log("Not supported app");
         }
       });
  
-      /* (Optional) Set capture image name */
-      /*
-        You can change the name of the downloaded file after capture.
-        Even if you don't set it, 'fm-fitting-capture.png' is set by default, so you only need to set it if you need to change the file name.
-      */
-      fmCaptureFilename = 'fm-fitting-capture.png';
- 
-      /* (Optional) Set contact lens fitting transparency initial value */
-      /*
-        Set the initial transparency (0~100) of the contact lens fitting when opening the virtual fitting screen.
-        80 is set by default even if not set.
-      */
+      /* Setting customized ui */
+      fmCustomUI = true; // Whether to use customized UI
+      fmFittingOpenCallback = function() {
+        console.log(fmFittingProductList);
+        $("#fitting-custom-ui").addClass("on");
+
+        var keys = Object.keys(fmFittingProductList);
+        for (var i = 0; i < keys.length; i++) {
+          var key = keys[i];
+          var tmpHtml = `<div id="product_0${i + 1}" class="round-box fm_model cursor-pointer" value="${key}" style='width:50px;height:50px;' onclick='fitting("${key}")'>
+                          <img class="circle" src="${fmFittingProductList[key].FrontImage}" align="center">
+                        </div>`;
+          $("#fitting-custom-ui").append(tmpHtml);
+        }
+
+        if (fittingType == 1) {
+          $('.fm-op-slider').hide();
+        } else {
+          $('.fm-op-slider').show();
+        }
+      }
+
+      function fitting(productkey) {
+        fmFitting(productkey)
+      }
+
+      function closeFitting() {
+        $("#fitting-custom-ui").removeClass("on");
+        fmFittingClose();
+      }
+
+      $('.fm-op-slider[type=range]').on('input', function() {
+        var val = $(this).val();
+        fmSetLensEffect(val);
+      });
+
       lensAlpha = 50;
+
+      fmCaptureCallback = function(data) {
+        var link = document.createElement('a');
+        link.download = fmCaptureFilename;
+        link.href = data;
+        link.click();
+      }
+
+      fmCaptureFilename = 'fm-fitting-capture.png';
     </script>
-  </body>
+    
+    <script src="scripts.js"></script>
+</body>
 </html>

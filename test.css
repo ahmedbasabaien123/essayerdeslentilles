@@ -71,6 +71,73 @@ main {
     z-index: -1;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn .icon {
+    margin-left: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4CAF50;
+    min-width: 210px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-item:hover {
+    background-color: #000;
+}
+
+.dropdown-item:hover .dropdown-subcontent {
+    display: block;
+}
+
+.dropdown-subcontent {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-subcontent a {
+    padding: 12px 16px;
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-subcontent a:hover {
+    background-color: #ddd;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -81,82 +148,6 @@ main {
 #hero h1 {
     font-size: 2.5em;
     margin-bottom: 100px;
-}
-
-#hero .button {
-    background-color: #00AEEF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-    
-}
-
-#dropdown, .submenu-content {
-    display: none; /* Masquer par défaut */
-}
-
-.dropdown-content {
-    position: absolute;
-    top: 91%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    z-index: 10;
-    padding: 10px;
-    max-height: 200px; /* Hauteur maximale pour le défilement */
-    overflow-y: auto; /* Activer le défilement vertical */
-}
-.dropdown {
-    position: relative;
-}
-
-.dropbtn {
-    background-color: #00AEEF;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    display: block;
-    margin-bottom: 2px;
-    transition: background-color 0.3s, transform 0.3s; /* Transition pour les effets */
-}
-
-.submenu-content {
-    position: relative;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    max-height: 150px; /* Hauteur maximale pour le défilement */
-    overflow-y: auto; /* Activer le défilement vertical */
-}
-
-.dropbtn:hover {
-    background-color: #007BFF;
-    transform: scale(1.05); /* Agrandir légèrement le bouton au survol */
-}
-
-
-.submenu-content a {
-    color: #00AEEF;
-    text-decoration: none;
-    display: block;
-    padding: 5px 0;
-}
-
-.submenu-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown-content, .submenu-content {
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre pour donner de la profondeur */
-    transition: max-height 0.3s ease-in-out; /* Transition pour l'ouverture/fermeture */
 }
 
 #about, #contact {
@@ -207,7 +198,6 @@ main {
     overflow: hidden; /* Assurez-vous que l'image ne déborde pas */
 }
 
-
 #bg-image {
     position: absolute;
     top: 50%;
@@ -218,7 +208,6 @@ main {
     transform: translate(-50%, -50%);
     z-index: -1; /* Assurez-vous que l'image est derrière le contenu */
 }
-
 
 .overlay {
     position: absolute;
@@ -246,12 +235,10 @@ main {
     border-radius: 10px; /* Optionnel : Arrondit les coins du fond */
 }
 
-
 #contact {
     text-align: center;
     align-items: center;
 }
-
 
 footer {
     background-color: #000;
@@ -268,71 +255,4 @@ footer p {
 footer a {
     color: #fff;
     text-decoration: none;
-}
-
-.fm-fitting-btn {
-    display: none;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 1000;
-    background-color: #00AEEF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-
-
-.dropdown {
-    max-width: 300px;
-    height: 63px;
-    border-radius: 5px;
-    margin: 100px auto;
-    color: #f1f1f1;
-    background: #00AEEF;
-    transition: height 0.4s ease-in-out;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.bloc-top {
-    padding: 20px;
-    display: block;
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #00AEEF;
-    color: #f1f1f1;
-    cursor: pointer;
-    border-radius:  5px;
-}
-.bloc-top img {
-    width: 20px
-}
-
-
-
-.bloc-links {
-    padding: 0 20px;
-}
-
-.bloc-links li {
-    list-style-type: none;
-    padding: 5px 0;
-}
-
-.bloc-links li a {
-    font-size: 18px;
-    color: #f1f1f1;
-    margin-left: 5px;
-}
-.bloc-links li:last-child{
-    padding-bottom: 25px;
 }
