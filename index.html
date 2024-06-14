@@ -1,91 +1,94 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essai de Lentilles</title>
-    <link rel="stylesheet" href="styles.css">
+    <title> Testez des lentilles de couleur</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://api.fittingmonster.com/css/api/fm.api_v5.css" />
+
+
 </head>
 <body>
-    <header>
-        <img src="src/logo.png" alt="CVE Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="#about">À propos de nous</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="hero">
-            <video autoplay muted loop id="bg-video">
-                <source src="/src/EDLVidéo.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-            </video>
-            <div class="overlay"></div>
-            <div class="hero-content">
-                <h1>Bienvenue sur notre site d'essai gratuit</h1>
-                <button class="button" onclick="toggleDropdown('dropdown')">J'essaie mes lentilles</button>
-                <div id="dropdown" class="dropdown-content">
-                    <div class="dropdown">
-                        <button class="dropbtn" onclick="toggleDropdown('ozia-submenu')">OZIA</button>
-                        <div id="ozia-submenu" class="submenu-content">
-                            <a href="/Ozia/3ton.html" onclick="tryOZIA('product-3ton')">3ton</a>
-                            <a href="/Ozia/1ton.html" onclick="tryOZIA('product-1ton')">1ton</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn" onclick="toggleDropdown('queens-submenu')">QUEEN'S</button>
-                        <div id="queens-submenu" class="submenu-content">
-                            <a href="/Queen's/solitaire.html" onclick="tryQueens('product-solitaire')">Solitaire</a>
-                            <a href="/Queen's/twins.html" onclick="tryQueens('product-twins')">Twins</a>
-                            <a href="/Queen's/trilogy.html" onclick="tryQueens('product-trilogy')">Trilogy</a>
-                        </div>
-                    </div>
-                    <a href="/Demoniac&Funny/demoniacfunny.html" class="dropbtn" onclick="tryDeminiac()">DEMINIAC</a>
-                </div>
-            </div>
-        </section>
+    <div id="fm-fitting-display"></div>
+    <div id="fm-popup-bg"></div>
 
-        <section id="about">
-            <div class="about-wrapper">
-                <div class="about-header">
-                    <h2>À PROPOS DE <span class="highlight">CVE</span></h2>
-                </div>
-                <div class="about-content">
-                    <img src="src/oeil.jpg" alt="Eye image" class="about-image">
-                    <div class="about-text">
-                        <p>Le laboratoire CVE propose un service d'essai gratuit pour les lentilles de contact.</p>
-                        <p>CVE, spécialisé dans les lentilles de contact depuis 1986, offre des lentilles haut de gamme de divers fabricants avec lesquels nous coopérons depuis de nombreuses années.</p>
-                        <p>En plus des lentilles de haute technologie et des lentilles cosmétiques reconnues, nous nous engageons à appliquer toute notre expertise et nos compétences au service des yeux des porteurs.</p>
-                    </div>
-                </div>
+    <section class="header">
+       <div class="text-box">
+        <h1>Testez vos lentilles de couleur</h1>
+       </div>
+       <div class="row">
+        <div class="gammes-col">
+            <img src="src/queen's.jpg">
+            <img src="src/logoqueen's.png" alt="Logo 1" class="logo">
+            <div class="btn-container">
+                <button id="button1" class="fitting-btn">Solitaire</button>
+                <button id="button2" class="fitting-btn">Twins</button>
+                <button id="button3" class="fitting-btn">Trilogy</button>
             </div>
-        </section>
-        
-        <section id="optician">
-            <img src="src/opticien.jpg" alt="Optician Image" id="bg-image">
-            <div class="overlay"></div>
-            <div class="optician-content">
-                <h2>Commandez chez votre opticien</h2>
+        </div>
+        <div class="gammes-col">
+            <img src="src/ozia.png">
+            <img src="src/logoozia.png" alt="Logo 1" class="logo">
+            <div class="btn-container">
+                <button id="button4" class="fitting-btn">1 Ton</button>
+                <button id="button5" class="fitting-btn">3 Ton</button>
+
             </div>
-        </section>
+        </div>
+        <div class="gammes-col">
+            <img src="src/funny.png">
+            <img src="src/logofunnyeyes.png" alt="Logo 1" class="logo">
+            <div class="btn-container">
+                <button id="button6" class="fitting-btn">Funny Eyes</button>
+            </div>
+        </div>
+        <div class="gammes-col">
+            <img src="src/demoniac.jpg">
+            <img src="src/logodemoniac.png" alt="Logo 1" class="logo">
+            <div class="btn-container">
+                <button id="button7" class="fitting-btn">Demoniac</button>
+            </div>
+        </div>
+    </div>
+    </section>
+   
+    <script>
+        document.getElementById('button1').onclick = function() {
+            runSolitaire();
+        };
+        document.getElementById('button2').onclick = function() {
+            runTwins();
+        };
+        document.getElementById('button3').onclick = function() {
+            runTrilogy();
+        };
+        document.getElementById('button4').onclick = function() {
+            runTon1();
+        };
+        document.getElementById('button5').onclick = function() {
+            runTon3();
+        };
+        document.getElementById('button6').onclick = function() {
+            runFunny();
+        };
+        document.getElementById('button7').onclick = function() {
+            runDemoniac();
+        };
+        let companykey = "xlei4EaTNrAe5kMVsNGXD26eCMwfSXsNveYjl4BpV+wFnyNMR6ij/X3vKIrTDKyX";
+        var productkey = "";
+        lensAlpha = 50;
+        fmCaptureFilename = 'fm-fitting-capture.png';
+    </script>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Pour toute question ou information complémentaire, n'hésitez pas à nous contacter :</p>
-            <p>Email : <a href="mailto:info@labo-cve.com">info@labo-cve.com</a></p>
-            <p>Téléphone : <a href="tel:+33 (0)3 90 40 46 00">+33 (0)3 90 40 46 00</a></p>
-        </section>
-    </main>
-    <footer>
-        <p><a href="mentions-legales.html">Mentions légales</a></p>
-    </footer>
+     <script src="https://code.jquery.com/jquery.min.js"></script>
+     <script src="https://api.fittingmonster.com/js/api/fm.api.live_v2.js"></script>
+     <script src="scripts/solitaire.js"></script>
+     <script src="scripts/twins.js"></script>
+     <script src="scripts/trilogy.js"></script>
+     <script src="scripts/1ton.js"></script>
+     <script src="scripts/3ton.js"></script>
+     <script src="scripts/funny.js"></script>
+     <script src="scripts/demoniac.js"></script>
 
-    <!--Load the AJAX API-->
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-    <script src="https://api.fittingmonster.com/js/api/fm.api.live_v2.js"></script>
-    <script src="scripts.js"></script> <!-- Inclure le fichier JavaScript séparé -->
 </body>
 </html>
